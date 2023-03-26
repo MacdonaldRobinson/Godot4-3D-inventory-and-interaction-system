@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://begowpvkx8shw"]
+[gd_scene load_steps=3 format=3 uid="uid://begowpvkx8shw"]
 
-[ext_resource type="PackedScene" uid="uid://be1trh4ee0xi2" path="res://UI/Inventory/Slot/slot.tscn" id="1_d14jt"]
+[ext_resource type="PackedScene" uid="uid://b5ko7saf80xyf" path="res://UI/Inventory/Slot/slot.tscn" id="1_d14jt"]
+[ext_resource type="Script" path="res://UI/Inventory/inventory.gd" id="1_hjov2"]
 
 [node name="Inventory" type="PanelContainer"]
 offset_right = 220.0
 offset_bottom = 152.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+script = ExtResource("1_hjov2")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

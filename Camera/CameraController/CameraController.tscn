@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://duaksperg3ni3"]
+
+[ext_resource type="Script" path="res://Camera/CameraController/CameraController.gd" id="1_guwrm"]
+
+[node name="CameraController" type="Node3D"]
+script = ExtResource("1_guwrm")
+camera_mode = 1
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+near = 0.3
+
+[node name="CameraLookAtPoint" type="Node3D" parent="SpringArm3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -51.4425)

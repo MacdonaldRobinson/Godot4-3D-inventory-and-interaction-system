@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd6k5blohwxeb"]
+[gd_scene load_steps=11 format=3 uid="uid://hxjgvs6hn1mr"]
 
-[ext_resource type="PackedScene" uid="uid://begowpvkx8shw" path="res://Inventory/inventory.tscn" id="1_bs1ng"]
+[ext_resource type="PackedScene" uid="uid://begowpvkx8shw" path="res://UI/Inventory/inventory.tscn" id="1_bs1ng"]
+[ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_bxuuu"]
+[ext_resource type="Script" path="res://world.gd" id="1_sggco"]
+[ext_resource type="PackedScene" uid="uid://cbbs0xp4m3118" path="res://Player/player.tscn" id="3_epbcs"]
+[ext_resource type="PackedScene" uid="uid://duaksperg3ni3" path="res://Camera/CameraController/CameraController.tscn" id="5_1luaw"]
+[ext_resource type="PackedScene" uid="uid://deg0x7tsptiyc" path="res://Items/Knife/kife.tscn" id="6_lh5tr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rf7tx"]
 
@@ -11,15 +16,32 @@ sky_material = SubResource("ProceduralSkyMaterial_rf7tx")
 background_mode = 2
 sky = SubResource("Sky_3nswl")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ws3j"]
+albedo_texture = ExtResource("1_bxuuu")
+uv1_triplanar = true
+
 [node name="World" type="Node3D"]
+script = ExtResource("1_sggco")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q5jfe")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.503291, 0)
-size = Vector3(10, 1, 10)
+material_override = SubResource("StandardMaterial3D_0ws3j")
+use_collision = true
+size = Vector3(100, 1, 100)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_bs1ng")]
+
+[node name="Player" parent="." instance=ExtResource("3_epbcs")]
+transform = Transform3D(-0.128848, 0, 0.991664, 0, 1, 0, -0.991664, 0, -0.128848, 4.72057, 1.86734, 0)
+
+[node name="CameraController" parent="." instance=ExtResource("5_1luaw")]
+
+[node name="Items" type="Node3D" parent="."]
+
+[node name="RigidBody3D" parent="Items" instance=ExtResource("6_lh5tr")]
+transform = Transform3D(1, 0, 0, 0, -0.067162, 0.997742, 0, -0.997742, -0.067162, 0, 5.29477, 0)
