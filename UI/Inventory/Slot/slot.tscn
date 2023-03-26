@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5ko7saf80xyf"]
+
+[ext_resource type="Script" path="res://UI/Inventory/Slot/slot.gd" id="1_nr7tm"]
+[ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="2_k1hcn"]
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 138.0
+offset_bottom = 138.0
+script = ExtResource("1_nr7tm")
+
+[node name="SlotContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Texture" type="TextureRect" parent="SlotContainer"]
+layout_mode = 2
+texture = ExtResource("2_k1hcn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Quantity" type="Label" parent="SlotContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "x10"

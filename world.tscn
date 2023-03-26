@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd6k5blohwxeb"]
+
+[ext_resource type="PackedScene" uid="uid://begowpvkx8shw" path="res://Inventory/inventory.tscn" id="1_bs1ng"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rf7tx"]
+
+[sub_resource type="Sky" id="Sky_3nswl"]
+sky_material = SubResource("ProceduralSkyMaterial_rf7tx")
+
+[sub_resource type="Environment" id="Environment_q5jfe"]
+background_mode = 2
+sky = SubResource("Sky_3nswl")
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q5jfe")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.503291, 0)
+size = Vector3(10, 1, 10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_bs1ng")]
