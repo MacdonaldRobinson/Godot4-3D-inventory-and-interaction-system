@@ -15,11 +15,14 @@ func clear():
 		grid.remove_child(item)
 
 func find_item(item: CollectableItem) -> InventoryItem:
+	return find_item_by_name(item.item_name)
+	
+func find_item_by_name(item_name: String) -> InventoryItem:
 	for inventory_item in inventory:
-		if inventory_item.item.resource_name == item.item_name:
+		if inventory_item.item.resource_name == item_name:
 			return inventory_item
 	
-	return null
+	return null	
 	
 func add_item(item: CollectableItem, quantity: int):
 	var found_item: InventoryItem = find_item(item)

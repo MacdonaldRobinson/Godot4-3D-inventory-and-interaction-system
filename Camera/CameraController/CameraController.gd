@@ -12,7 +12,7 @@ enum Mode {
 @onready var spring_arm: SpringArm3D = $SpringArm3D
 @onready var camera_look_at_point: Node3D = $SpringArm3D/Camera3D/CameraLookAtPoint
 
-var look_at_point: Vector3 = Vector3.ZERO
+@export var look_at_target: Node3D
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -25,10 +25,6 @@ func set_camera_mode(new_camera_mode: Mode):
 		spring_arm.spring_length = 0
 	elif camera_mode == Mode.Third_Person:
 		spring_arm.spring_length = 5	
-		
-func set_look_at_point(look_at_point:Vector3):
-	self.look_at_point = look_at_point
-	
 		
 func get_camera_look_at_point():
 	return camera_look_at_point.global_position
@@ -75,7 +71,7 @@ func handle_third_person_mouse_event(event):
 		spring_arm.spring_length = clamp(spring_arm.spring_length, 1, 10)	
 	
 func _process(delta):
-	self.global_position = look_at_point
+	self.global_position = look_at_target.global_position
 	if camera_mode == Mode.Third_Person:
-		camera.look_at(look_at_point)
+		camera.look_at(look_at_target.global_position)
  

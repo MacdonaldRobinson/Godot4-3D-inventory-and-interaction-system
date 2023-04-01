@@ -28,10 +28,11 @@ func _physics_process(delta):
 	var camera_look_at_point:Vector3 = camera_controller.get_camera_look_at_point()		
 	eyes_cast.look_at(camera_look_at_point)
 	
+	
 	if eyes_cast.is_colliding():
 		var collider = eyes_cast.get_collider()
 				
-		if collider is CollectableItem:
+		if collider is InteractableItem:
 			var actions = InputMap.get_actions()
 			for action in actions:
 				if action == "interact":
@@ -47,7 +48,16 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		var collider = eyes_cast.get_collider()				
 		if collider is CollectableItem:
-			collider.interact(func (): inventory.add_item(collider, 1))
+			collider.interact(inventory,
+			func (message): 
+				inventory.add_item(collider, 1)
+				info_message.text = message				
+			)
+		elif collider is InteractableItem:
+			collider.interact(inventory, 
+			func (message: String): 
+				info_message.text = message	
+			)
 	
 	
 	if direction:		

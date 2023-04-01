@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://deg0x7tsptiyc"]
 
 [ext_resource type="Script" path="res://Items/Knife/kife.gd" id="1_m2d4y"]
-[ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="2_rfdlj"]
+[ext_resource type="Texture2D" uid="uid://d4lfiqrq28jl1" path="res://Items/Knife/knife.png" id="2_k76l7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4uet"]
 resource_name = "wood"
@@ -77,13 +77,13 @@ size = Vector3(2.168, 0.704, 0.36)
 [node name="Knife" type="RigidBody3D"]
 script = ExtResource("1_m2d4y")
 item_name = "Knife"
-item_texture = ExtResource("2_rfdlj")
+item_texture = ExtResource("2_k76l7")
 
 [node name="Knife" type="MeshInstance3D" parent="."]
-transform = Transform3D(8.07033, 0, 0, 0, 8.07032, 0, 0, 0, 8.07032, 0.917249, 0, 0)
+transform = Transform3D(8.07033, 0, 0, 0, 8.07032, 0, 0, 0, 8.07032, 0.663593, 0, 0)
 mesh = SubResource("ArrayMesh_32taf")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 2.23517e-08, 0, -2.23517e-08, 1, 0.243564, 0.0558621, 0.0037603)
+transform = Transform3D(1, 0, 0, 0, 1, 2.23517e-08, 0, -2.23517e-08, 1, -0.010092, 0.0558621, 0.0037603)
 shape = SubResource("BoxShape3D_5q1i6")

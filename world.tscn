@@ -1,20 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://hxjgvs6hn1mr"]
+[gd_scene load_steps=12 format=3 uid="uid://hxjgvs6hn1mr"]
 
 [ext_resource type="PackedScene" uid="uid://begowpvkx8shw" path="res://UI/Inventory/inventory.tscn" id="1_bs1ng"]
 [ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_bxuuu"]
 [ext_resource type="Script" path="res://world.gd" id="1_sggco"]
+[ext_resource type="Environment" uid="uid://jabiqy2qnjcr" path="res://world.tres" id="2_lsdbq"]
 [ext_resource type="PackedScene" uid="uid://cbbs0xp4m3118" path="res://Player/player.tscn" id="3_epbcs"]
 [ext_resource type="PackedScene" uid="uid://duaksperg3ni3" path="res://Camera/CameraController/CameraController.tscn" id="5_1luaw"]
 [ext_resource type="PackedScene" uid="uid://deg0x7tsptiyc" path="res://Items/Knife/kife.tscn" id="6_lh5tr"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rf7tx"]
-
-[sub_resource type="Sky" id="Sky_3nswl"]
-sky_material = SubResource("ProceduralSkyMaterial_rf7tx")
-
-[sub_resource type="Environment" id="Environment_q5jfe"]
-background_mode = 2
-sky = SubResource("Sky_3nswl")
+[ext_resource type="PackedScene" uid="uid://by6vwsofj2vyj" path="res://Items/Cup/Cup.tscn" id="7_d3h8w"]
+[ext_resource type="PackedScene" uid="uid://u7e4jm6m7xot" path="res://Items/Door/Door.tscn" id="9_5heh6"]
+[ext_resource type="PackedScene" uid="uid://8lnx8x5odi15" path="res://Items/Key/Key.tscn" id="9_eehm1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ws3j"]
 albedo_texture = ExtResource("1_bxuuu")
@@ -24,7 +19,7 @@ uv1_triplanar = true
 script = ExtResource("1_sggco")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_q5jfe")
+environment = ExtResource("2_lsdbq")
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.503291, 0)
@@ -39,9 +34,18 @@ size = Vector3(100, 1, 100)
 [node name="Player" parent="." instance=ExtResource("3_epbcs")]
 transform = Transform3D(-0.128848, 0, 0.991664, 0, 1, 0, -0.991664, 0, -0.128848, 4.72057, 1.86734, 0)
 
-[node name="CameraController" parent="." instance=ExtResource("5_1luaw")]
+[node name="CameraController" parent="." node_paths=PackedStringArray("look_at_target") instance=ExtResource("5_1luaw")]
+look_at_target = NodePath("../Player")
 
 [node name="Items" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2754, 3.38928)
 
-[node name="RigidBody3D" parent="Items" instance=ExtResource("6_lh5tr")]
-transform = Transform3D(1, 0, 0, 0, -0.067162, 0.997742, 0, -0.997742, -0.067162, 0, 5.29477, 0)
+[node name="Knife" parent="Items" instance=ExtResource("6_lh5tr")]
+
+[node name="Cup" parent="Items" instance=ExtResource("7_d3h8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0426)
+
+[node name="Key" parent="Items" instance=ExtResource("9_eehm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="Door" parent="." instance=ExtResource("9_5heh6")]
