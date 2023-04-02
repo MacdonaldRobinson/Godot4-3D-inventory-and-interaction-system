@@ -1,15 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5iv6s7pdt470"]
+[gd_scene load_steps=13 format=3 uid="uid://b5iv6s7pdt470"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_4ubsw"]
 [ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_bxuuu"]
 [ext_resource type="PackedScene" uid="uid://bskswmndvttle" path="res://PlayerController/PlayerController.tscn" id="3_epbcs"]
-[ext_resource type="PackedScene" path="res://CameraController/CameraController.tscn" id="5_1luaw"]
+[ext_resource type="PackedScene" uid="uid://iefrevnkl38v" path="res://CameraController/CameraController.tscn" id="5_1luaw"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Knife/kife.tscn" id="6_lh5tr"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Cup/Cup.tscn" id="7_d3h8w"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Room/Room.tscn" id="9_5heh6"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Key/Key.tscn" id="9_eehm1"]
-[ext_resource type="PackedScene" uid="uid://dltah5lmcanj7" path="res://InventoryController/InventoryController.tscn" id="10_01sgd"]
-[ext_resource type="PackedScene" uid="uid://dxgko0bcehgd6" path="res://PlayerInteractionController/PlayerInteractionController.tscn" id="11_kivck"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ydbas"]
 
@@ -36,9 +34,8 @@ material_override = SubResource("StandardMaterial3D_0ws3j")
 use_collision = true
 size = Vector3(100, 1, 100)
 
-[node name="PlayerController" parent="." node_paths=PackedStringArray("inventory_controller") instance=ExtResource("3_epbcs")]
+[node name="PlayerController" parent="." instance=ExtResource("3_epbcs")]
 transform = Transform3D(-0.128848, 0, 0.991664, 0, 1, 0, -0.991664, 0, -0.128848, 11.8063, 1.86734, 0)
-inventory_controller = NodePath("../InventoryController")
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("look_at_target") instance=ExtResource("5_1luaw")]
 look_at_target = NodePath("../PlayerController")
@@ -57,8 +54,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 
 [node name="Room" parent="." instance=ExtResource("9_5heh6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01691, 1.37156, 0)
-
-[node name="PlayerInteractionController" parent="." node_paths=PackedStringArray("player_controller") instance=ExtResource("11_kivck")]
-player_controller = NodePath("../PlayerController")
-
-[node name="InventoryController" parent="." instance=ExtResource("10_01sgd")]

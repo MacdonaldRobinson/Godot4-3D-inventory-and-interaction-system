@@ -14,15 +14,8 @@ enum Mode {
 
 @export var look_at_target: Node3D
 
-func _get_configuration_warnings():
-	var string_array = PackedStringArray()
-
-	if !camera:
-		string_array.push_back("Look At Target is required")
-	
-	return string_array
-
-func _ready():
+func _ready():	
+	self.top_level = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_camera_mode(camera_mode)
 	
@@ -61,13 +54,7 @@ func handle_first_person_mouse_event(event):
 		spring_arm.rotation.y -= event.relative.x * 0.005
 		
 		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -0.8, 0.8)
-			
-		#look_at_node.owner.rotation.y = camera.rotation.y
-		
-#		if spring_arm.rotation.y > 1.5:
-#			look_at_node.owner.rotation.y -= event.relative.x * 0.005
-#		elif spring_arm.rotation.y < 0.5:		
-		
+
 		
 func handle_third_person_mouse_event(event):
 	if event is InputEventMouseMotion:
@@ -75,7 +62,7 @@ func handle_third_person_mouse_event(event):
 		spring_arm.rotation.x += event.relative.y * 0.005
 		spring_arm.rotation.y += event.relative.x * 0.005
 		
-		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -1, 0.5)		
+		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -1, 0.8)		
 		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -83,9 +70,9 @@ func handle_third_person_mouse_event(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			spring_arm.spring_length = lerp(spring_arm.spring_length, spring_arm.spring_length + 3, 0.05)			
 	
-		spring_arm.spring_length = clamp(spring_arm.spring_length, 1, 10)	
+		spring_arm.spring_length = clamp(spring_arm.spring_length, 2, 10)	
 	
-func _process(delta):		
+func _process(delta):	
 	self.global_position = look_at_target.global_position
 	if camera_mode == Mode.Third_Person:
 		camera.look_at(look_at_target.global_position)
