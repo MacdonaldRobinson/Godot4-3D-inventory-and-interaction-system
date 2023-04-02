@@ -9,7 +9,6 @@ A demo showing the following
 - Collectable Items
 - Use of Validated Responses and Callbacks
 - Inherited Tool warnings in the editor
-- Camera Controller
 - Display messages when looking at interactable items
 - Display messages if there was a success or a failure interacting with the item
 - Key protected door ( Only opens if you have the Key in your inventory )
