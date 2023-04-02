@@ -17,6 +17,7 @@ sky_material = SubResource("ProceduralSkyMaterial_ydbas")
 [sub_resource type="Environment" id="Environment_88i4k"]
 background_mode = 2
 sky = SubResource("Sky_d6geo")
+tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ws3j"]
 albedo_texture = ExtResource("1_bxuuu")
@@ -65,3 +66,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34025, 2.46055, 0)
 
 [node name="Platform4" parent="Node3D" instance=ExtResource("8_og3it")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34025, 2.46055, 4.56376)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.296542, 0.95502, 0, -0.95502, 0.296542, 0, 6.90742, 0)
