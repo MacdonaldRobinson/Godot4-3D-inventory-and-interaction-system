@@ -11,7 +11,7 @@ A demo showing the following
 - Inherited Tool warnings in the editor
 - Display messages when looking at interactable items
 - Display messages if there was a success or a failure interacting with the item
-- Shows how you can interact with items and run animations
+- Door, Elevator - Shows how you can interact with items and run animations
 - Key protected door ( Only opens if you have the Key in your inventory )
 
 ## Instructions:
