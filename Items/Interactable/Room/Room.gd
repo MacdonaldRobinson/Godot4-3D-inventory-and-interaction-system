@@ -1,8 +1,7 @@
 extends InteractableItem
-class_name Room
 
 @onready var door_hinge: Node3D = $".."
-@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+@onready var animation_player: AnimationPlayer =$"../../AnimationPlayer"
 
 enum State {
 	Open,

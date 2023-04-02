@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Knife/kife.tscn" id="6_lh5tr"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Cup/Cup.tscn" id="7_d3h8w"]
 [ext_resource type="PackedScene" uid="uid://cn5xnli7q5gpa" path="res://Player/Player.tscn" id="7_q7dn4"]
-[ext_resource type="PackedScene" path="res://Items/Interactable/Room/Room.tscn" id="9_5heh6"]
+[ext_resource type="PackedScene" uid="uid://be6wiqua877j2" path="res://Items/Interactable/Room/Room.tscn" id="9_5heh6"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Key/Key.tscn" id="9_eehm1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ydbas"]

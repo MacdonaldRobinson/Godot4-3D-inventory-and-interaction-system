@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://ne65riupfetd"]
+
+[ext_resource type="Script" path="res://Items/Interactable/Door/Door.gd" id="1_mkx8y"]
+[ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_vpgba"]
+
+[sub_resource type="Animation" id="Animation_j8sn1"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_013sv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dir80"]
+_data = {
+"Open": SubResource("Animation_j8sn1"),
+"RESET": SubResource("Animation_013sv")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw4r0"]
+albedo_texture = ExtResource("1_vpgba")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ri78p"]
+albedo_texture = ExtResource("1_vpgba")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cpp7"]
+albedo_texture = ExtResource("1_vpgba")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jlbv"]
+albedo_texture = ExtResource("1_vpgba")
+
+[node name="Door" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DoorHinge")
+libraries = {
+"": SubResource("AnimationLibrary_dir80")
+}
+
+[node name="DoorHinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.860077)
+
+[node name="Door" type="CSGBox3D" parent="DoorHinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.868129)
+material_override = SubResource("StandardMaterial3D_rw4r0")
+use_collision = true
+size = Vector3(0.1, 2.75, 1.75)
+script = ExtResource("1_mkx8y")
+item_name = "Door"
+
+[node name="Knob" type="CSGSphere3D" parent="DoorHinge/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.638936)
+radius = 0.2
+
+[node name="DoorFrame" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ri78p")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="DoorFrame"]
+size = Vector3(0.5, 3, 2)
+material = SubResource("StandardMaterial3D_8cpp7")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="DoorFrame"]
+material_override = SubResource("StandardMaterial3D_0jlbv")
+operation = 2
+size = Vector3(0.75, 2.75, 1.75)

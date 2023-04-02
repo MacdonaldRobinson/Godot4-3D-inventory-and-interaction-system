@@ -59,8 +59,8 @@ func handle_first_person_mouse_event(event):
 func handle_third_person_mouse_event(event):
 	if event is InputEventMouseMotion:
 		var mouse_position: Vector2 = get_viewport().get_mouse_position()
-		spring_arm.rotation.x += event.relative.y * 0.005
-		spring_arm.rotation.y += event.relative.x * 0.005
+		spring_arm.rotation.x -= event.relative.y * 0.003
+		spring_arm.rotation.y -= event.relative.x * 0.003
 		
 		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -1, 0.8)		
 		
