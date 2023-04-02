@@ -5,10 +5,6 @@
 [node name="PlayerInteractionController" type="Node3D"]
 script = ExtResource("1_ethe1")
 
-[node name="EyesCast" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422781, 0)
-target_position = Vector3(0, 0, -2)
-
 [node name="Messages" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5

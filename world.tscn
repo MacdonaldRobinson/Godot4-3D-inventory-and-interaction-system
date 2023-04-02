@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5iv6s7pdt470"]
+[gd_scene load_steps=13 format=3 uid="uid://b5iv6s7pdt470"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_4ubsw"]
 [ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_bxuuu"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Knife/kife.tscn" id="6_lh5tr"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Cup/Cup.tscn" id="7_d3h8w"]
 [ext_resource type="PackedScene" uid="uid://cn5xnli7q5gpa" path="res://Player/Player.tscn" id="7_q7dn4"]
+[ext_resource type="PackedScene" uid="uid://dma6c1kidspde" path="res://Items/Interactable/Platform/Platform.tscn" id="8_og3it"]
 [ext_resource type="PackedScene" uid="uid://be6wiqua877j2" path="res://Items/Interactable/Room/Room.tscn" id="9_5heh6"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Key/Key.tscn" id="9_eehm1"]
 
@@ -43,10 +44,24 @@ max_amount_collectable = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0426)
 
 [node name="Key" parent="Items" instance=ExtResource("9_eehm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65412, 1.95837, 1.79337)
 
 [node name="Room" parent="." instance=ExtResource("9_5heh6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01691, 1.37156, 0)
 
 [node name="Player" parent="." instance=ExtResource("7_q7dn4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1662, 3.32666, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1733, 0.844048, 0)
+
+[node name="Platform" parent="Node3D" instance=ExtResource("8_og3it")]
+
+[node name="Platform2" parent="Node3D" instance=ExtResource("8_og3it")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69176, 1.2852, 0)
+
+[node name="Platform3" parent="Node3D" instance=ExtResource("8_og3it")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34025, 2.46055, 0)
+
+[node name="Platform4" parent="Node3D" instance=ExtResource("8_og3it")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34025, 2.46055, 4.56376)

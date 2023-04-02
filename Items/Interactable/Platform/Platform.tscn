@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dma6c1kidspde"]
+
+[ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_cnu61"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ta051"]
+albedo_texture = ExtResource("1_cnu61")
+
+[node name="Platform" type="CSGBox3D"]
+use_collision = true
+size = Vector3(2, 0.5, 2)
+material = SubResource("StandardMaterial3D_ta051")

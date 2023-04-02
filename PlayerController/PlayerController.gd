@@ -2,7 +2,7 @@ extends Node3D
 class_name PlayerController
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 6
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -27,14 +27,16 @@ func _physics_process(delta):
 	
 	var camera_look_at_point:Vector3 = camera_controller.get_camera_look_at_point()		
 	eyes_cast.look_at(camera_look_at_point)	
-
+	
 	if direction:		
 		player.look_at(Vector3(camera_look_at_point.x, 0, camera_look_at_point.z))
+		
+		player.rotation.x = 0
 		
 		player.velocity.x = direction.x * SPEED
 		player.velocity.z = direction.z * SPEED
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, SPEED)
-		player.velocity.z = move_toward(player.velocity.z, 0, SPEED)
-		
+		player.velocity.z = move_toward(player.velocity.z, 0, SPEED)		
+	
 	player.move_and_slide()
