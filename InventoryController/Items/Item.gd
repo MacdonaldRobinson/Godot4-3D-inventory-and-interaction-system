@@ -14,6 +14,4 @@ func _get_configuration_warnings():
 	if !item_texture:
 		string_array.push_back("Item Texture is required")
 		
-	update_configuration_warnings()
-	
 	return string_array

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5iv6s7pdt470"]
+[gd_scene load_steps=14 format=3 uid="uid://b5iv6s7pdt470"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_4ubsw"]
 [ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_bxuuu"]
-[ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Knife/kife.tscn" id="6_lh5tr"]
+[ext_resource type="PackedScene" uid="uid://6bc2elnfs0h5" path="res://Items/Interactable/Elevator/Elevator.tscn" id="3_wxp2c"]
+[ext_resource type="PackedScene" uid="uid://c05liopsecbow" path="res://Items/Interactable/Collectable/Knife/kife.tscn" id="6_lh5tr"]
 [ext_resource type="PackedScene" path="res://Items/Interactable/Collectable/Cup/Cup.tscn" id="7_d3h8w"]
 [ext_resource type="PackedScene" uid="uid://cn5xnli7q5gpa" path="res://Player/Player.tscn" id="7_q7dn4"]
 [ext_resource type="PackedScene" uid="uid://dma6c1kidspde" path="res://Items/Interactable/Platform/Platform.tscn" id="8_og3it"]
@@ -29,42 +30,59 @@ script = ExtResource("1_4ubsw")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_88i4k")
 
+[node name="Elevator" parent="." instance=ExtResource("3_wxp2c")]
+
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.503291, 0)
 material_override = SubResource("StandardMaterial3D_0ws3j")
 use_collision = true
 size = Vector3(100, 1, 100)
 
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.641, 0)
+material_override = SubResource("StandardMaterial3D_0ws3j")
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor2"]
+operation = 2
+size = Vector3(10, 10, 10)
+
 [node name="Items" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61964, 2.2754, 3.38928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0651, 2.2754, 3.38928)
 
 [node name="Knife" parent="Items" instance=ExtResource("6_lh5tr")]
-max_amount_collectable = 1
+collision_layer = 2
+collision_mask = 3
 
 [node name="Cup" parent="Items" instance=ExtResource("7_d3h8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0426)
+collision_layer = 2
+collision_mask = 3
 
 [node name="Key" parent="Items" instance=ExtResource("9_eehm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65412, 1.95837, 1.79337)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.7225, 1.95837, 1.79337)
+collision_layer = 2
+collision_mask = 3
 
 [node name="Room" parent="." instance=ExtResource("9_5heh6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01691, 1.37156, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22007, 1.37156, 0)
 
 [node name="Player" parent="." instance=ExtResource("7_q7dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1662, 3.32666, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5883, 5.24257, 0)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1733, 0.844048, 0)
+[node name="Platforms" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8267, 0.844048, 0)
 
-[node name="Platform" parent="Node3D" instance=ExtResource("8_og3it")]
+[node name="Platform" parent="Platforms" instance=ExtResource("8_og3it")]
 
-[node name="Platform2" parent="Node3D" instance=ExtResource("8_og3it")]
+[node name="Platform2" parent="Platforms" instance=ExtResource("8_og3it")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69176, 1.2852, 0)
 
-[node name="Platform3" parent="Node3D" instance=ExtResource("8_og3it")]
+[node name="Platform3" parent="Platforms" instance=ExtResource("8_og3it")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34025, 2.46055, 0)
 
-[node name="Platform4" parent="Node3D" instance=ExtResource("8_og3it")]
+[node name="Platform4" parent="Platforms" instance=ExtResource("8_og3it")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34025, 2.46055, 4.56376)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

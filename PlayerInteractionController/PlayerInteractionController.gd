@@ -13,7 +13,7 @@ func _ready():
 func _input(event):
 	if player_controller.eyes_cast.is_colliding():
 		var collider = player_controller.eyes_cast.get_collider()
-				
+		
 		if collider is InteractableItem:
 			var actions = InputMap.get_actions()
 			for action in actions:
