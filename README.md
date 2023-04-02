@@ -1,8 +1,10 @@
 # Godot4-3D-inventory-and-interaction-system
 
 A demo showing the following
-- Inventory Management System
-- Interaction System
+- Inventory Controller
+- Player Controller
+- Player Interaction Controller
+- Camera Controller
 - Interactable Items
 - Collectable Items
 - Use of Validated Responses and Callbacks
