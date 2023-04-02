@@ -30,18 +30,29 @@ shape = SubResource("CapsuleShape3D_xqflq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422781, 0)
 target_position = Vector3(0, 0, -2)
 
-[node name="InfoMessage" type="Label" parent="."]
+[node name="Inventory" parent="." instance=ExtResource("2_hacn1")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.5
-offset_top = -13.0
+offset_top = -28.0
 offset_right = 64.5
-offset_bottom = 13.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "This is some info"
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Inventory" parent="." instance=ExtResource("2_hacn1")]
+[node name="InfoMessage" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "This is some info"
+horizontal_alignment = 1
+
+[node name="SubMessage" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sub"
+horizontal_alignment = 1

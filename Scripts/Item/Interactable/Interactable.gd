@@ -1,7 +1,5 @@
 extends Item
 class_name InteractableItem
 
-signal Interacted(message: String)
-
-func interact(inventory: Inventory, callback: Callable):	
-	Interacted.emit("Interacted with "+ item_name)
+func interact(inventory: Inventory, callback: Callable):
+	callback.call(ValidatedResponse.create_new_validation_response(false, "Successfully interacted"))	

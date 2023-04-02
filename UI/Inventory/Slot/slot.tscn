@@ -7,6 +7,7 @@
 custom_minimum_size = Vector2(64, 64)
 offset_right = 138.0
 offset_bottom = 138.0
+mouse_filter = 1
 script = ExtResource("1_nr7tm")
 
 [node name="SlotContainer" type="MarginContainer" parent="."]
@@ -29,3 +30,5 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.870588, 1, 0.0235294, 1)
 text = "x10"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

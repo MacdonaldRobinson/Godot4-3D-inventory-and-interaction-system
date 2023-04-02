@@ -38,6 +38,13 @@ func _input(event):
 			handle_third_person_mouse_event(event)
 		elif camera_mode == Mode.First_Person:
 			handle_first_person_mouse_event(event)
+			
+	if Input.is_action_just_pressed("mouse_capture"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				
 	
 func handle_first_person_mouse_event(event):
 	if event is InputEventMouseMotion:

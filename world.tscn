@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://hxjgvs6hn1mr"]
+[gd_scene load_steps=11 format=3 uid="uid://hxjgvs6hn1mr"]
 
-[ext_resource type="PackedScene" uid="uid://begowpvkx8shw" path="res://UI/Inventory/inventory.tscn" id="1_bs1ng"]
 [ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_bxuuu"]
 [ext_resource type="Script" path="res://world.gd" id="1_sggco"]
 [ext_resource type="Environment" uid="uid://jabiqy2qnjcr" path="res://world.tres" id="2_lsdbq"]
@@ -27,18 +26,14 @@ material_override = SubResource("StandardMaterial3D_0ws3j")
 use_collision = true
 size = Vector3(100, 1, 100)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("1_bs1ng")]
-
 [node name="Player" parent="." instance=ExtResource("3_epbcs")]
-transform = Transform3D(-0.128848, 0, 0.991664, 0, 1, 0, -0.991664, 0, -0.128848, 4.72057, 1.86734, 0)
+transform = Transform3D(-0.128848, 0, 0.991664, 0, 1, 0, -0.991664, 0, -0.128848, 11.8063, 1.86734, 0)
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("look_at_target") instance=ExtResource("5_1luaw")]
 look_at_target = NodePath("../Player")
 
 [node name="Items" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2754, 3.38928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61964, 2.2754, 3.38928)
 
 [node name="Knife" parent="Items" instance=ExtResource("6_lh5tr")]
 
@@ -48,4 +43,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0426)
 [node name="Key" parent="Items" instance=ExtResource("9_eehm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 
-[node name="Door" parent="." instance=ExtResource("9_5heh6")]
+[node name="Room" parent="." instance=ExtResource("9_5heh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01691, 1.37156, 0)

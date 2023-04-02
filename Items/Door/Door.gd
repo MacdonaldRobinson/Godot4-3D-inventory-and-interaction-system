@@ -21,10 +21,8 @@ func interact(inventory: Inventory, callback: Callable):
 		else:
 			animation_player.play_backwards("Open")
 			current_state = State.Close
-		
-		callback.call("Interacted Door")
+			
+		callback.call(ValidatedResponse.create_new_validated_response(false, "Successfully interacted with Door"))
 	else:
-		callback.call("You dont have a Key")
-	
-	super(inventory, callback)
+		callback.call(ValidatedResponse.create_new_validated_response(false, "You do not have a key to open this door"))
 	
