@@ -8,3 +8,4 @@ sky_material = SubResource("ProceduralSkyMaterial_rf7tx")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_3nswl")
+tonemap_mode = 2

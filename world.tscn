@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://hxjgvs6hn1mr"]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Texture2D" uid="uid://cdj06ubewxrhe" path="res://icon.svg" id="1_bxuuu"]
 [ext_resource type="Script" path="res://world.gd" id="1_sggco"]
 [ext_resource type="Environment" uid="uid://jabiqy2qnjcr" path="res://world.tres" id="2_lsdbq"]
 [ext_resource type="PackedScene" uid="uid://cbbs0xp4m3118" path="res://Player/player.tscn" id="3_epbcs"]
 [ext_resource type="PackedScene" uid="uid://duaksperg3ni3" path="res://Camera/CameraController/CameraController.tscn" id="5_1luaw"]
-[ext_resource type="PackedScene" uid="uid://deg0x7tsptiyc" path="res://Items/Knife/kife.tscn" id="6_lh5tr"]
-[ext_resource type="PackedScene" uid="uid://by6vwsofj2vyj" path="res://Items/Cup/Cup.tscn" id="7_d3h8w"]
-[ext_resource type="PackedScene" uid="uid://u7e4jm6m7xot" path="res://Items/Door/Door.tscn" id="9_5heh6"]
-[ext_resource type="PackedScene" uid="uid://8lnx8x5odi15" path="res://Items/Key/Key.tscn" id="9_eehm1"]
+[ext_resource type="PackedScene" uid="uid://gvcs6otfjk7i" path="res://Items/Interactable/Collectable/Knife/kife.tscn" id="6_lh5tr"]
+[ext_resource type="PackedScene" uid="uid://dooxuuxywm7qj" path="res://Items/Interactable/Collectable/Cup/Cup.tscn" id="7_d3h8w"]
+[ext_resource type="PackedScene" path="res://Items/Interactable/Room/Room.tscn" id="9_5heh6"]
+[ext_resource type="PackedScene" uid="uid://drfcvw64xxeeu" path="res://Items/Interactable/Collectable/Key/Key.tscn" id="9_eehm1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ws3j"]
 albedo_texture = ExtResource("1_bxuuu")

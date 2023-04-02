@@ -87,7 +87,6 @@ func SlotOnGuiInput(event, slot: Slot):
 			if !move_slot:	
 				move_slot = slot
 			else:
-				
 				var old_index = move_slot.slot_index
 				var new_index = slot.slot_index
 				
@@ -103,5 +102,13 @@ func SlotOnGuiInput(event, slot: Slot):
 				render_inventory_items_into_available_slots()
 				
 				move_slot = null
+		elif event.pressed and event.button_index == 2:
+			if move_slot:
+				move_slot = null
+				render_inventory_slots()
+				render_inventory_items_into_available_slots()
+				
+			
+			
 				
 	

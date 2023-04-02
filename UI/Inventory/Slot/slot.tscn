@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5ko7saf80xyf"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://UI/Inventory/Slot/slot.gd" id="1_nr7tm"]
-[ext_resource type="Texture2D" uid="uid://d4lfiqrq28jl1" path="res://Items/Knife/knife.png" id="2_dx5uu"]
+[ext_resource type="Texture2D" uid="uid://d4lfiqrq28jl1" path="res://Items/Interactable/Collectable/Knife/knife.png" id="2_dx5uu"]
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(64, 64)

@@ -57,6 +57,10 @@ func _physics_process(delta):
 		if collider is CollectableItem:
 			collider.interact(inventory, 
 				func (response: ValidatedResponse): 
+					if response.is_error:
+						sub_message.text = response.message
+						return
+						
 					var add_response: ValidatedResponse = inventory.add_item(collider, 1)
 					sub_message.text = add_response.message
 			)
