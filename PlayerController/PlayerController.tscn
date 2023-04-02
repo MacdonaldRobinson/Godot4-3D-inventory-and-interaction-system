@@ -1,37 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bskswmndvttle"]
+[gd_scene load_steps=5 format=3 uid="uid://bskswmndvttle"]
 
 [ext_resource type="Script" path="res://PlayerController/PlayerController.gd" id="1_j8y6g"]
 [ext_resource type="PackedScene" uid="uid://iefrevnkl38v" path="res://CameraController/CameraController.tscn" id="2_ign4s"]
 [ext_resource type="PackedScene" uid="uid://dxgko0bcehgd6" path="res://PlayerInteractionController/PlayerInteractionController.tscn" id="3_axoa2"]
 [ext_resource type="PackedScene" uid="uid://dltah5lmcanj7" path="res://InventoryController/InventoryController.tscn" id="4_fu0cn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxkyj"]
-albedo_color = Color(1, 0.0392157, 0.156863, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dgjwm"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_kb2j2"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqflq"]
-
-[node name="PlayerController" type="CharacterBody3D"]
-velocity = Vector3(0, -3321.97, 0)
+[node name="PlayerController" type="Node3D"]
 script = ExtResource("1_j8y6g")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_jxkyj")
-mesh = SubResource("CapsuleMesh_dgjwm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367657, -0.0766845)
-mesh = SubResource("SphereMesh_kb2j2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_xqflq")
-
-[node name="EyesCast" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422781, 0)
-target_position = Vector3(0, 0, -2)
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("look_at_target") instance=ExtResource("2_ign4s")]
 top_level = true

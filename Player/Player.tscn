@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn5xnli7q5gpa"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_ghdt8"]
+[ext_resource type="PackedScene" uid="uid://bskswmndvttle" path="res://PlayerController/PlayerController.tscn" id="1_itslv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejest"]
+albedo_color = Color(1, 0.0392157, 0.156863, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fpxl7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7u8ye"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q2wyf"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_ghdt8")
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("eyes_cast", "player") instance=ExtResource("1_itslv")]
+eyes_cast = NodePath("../EyesCast")
+player = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ejest")
+mesh = SubResource("CapsuleMesh_fpxl7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367657, -0.0766845)
+mesh = SubResource("SphereMesh_7u8ye")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_q2wyf")
+
+[node name="EyesCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422781, 0)
+target_position = Vector3(0, 0, -2)
