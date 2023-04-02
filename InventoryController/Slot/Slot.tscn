@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3gqco0nwvxy0"]
+
+[ext_resource type="Script" path="res://InventoryController/Slot/Slot.gd" id="1_ba10g"]
+[ext_resource type="Texture2D" uid="uid://d4lfiqrq28jl1" path="res://Items/Interactable/Collectable/Knife/knife.png" id="2_76paj"]
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 138.0
+offset_bottom = 138.0
+mouse_filter = 1
+script = ExtResource("1_ba10g")
+
+[node name="SlotContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Texture" type="TextureRect" parent="SlotContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_76paj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Quantity" type="Label" parent="SlotContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.870588, 1, 0.0235294, 1)
+text = "x10"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

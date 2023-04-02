@@ -11,8 +11,8 @@ enum State {
 
 var current_state: State = State.Close
 
-func interact(inventory: Inventory, callback: Callable):
-	var found_item: InventoryItem = inventory.find_item_by_name("Key")
+func interact(inventory_controller: InventoryController, callback: Callable):
+	var found_item: InventoryItem = inventory_controller.find_item_by_name("Key")
 	
 	if found_item:
 		if current_state == State.Close:

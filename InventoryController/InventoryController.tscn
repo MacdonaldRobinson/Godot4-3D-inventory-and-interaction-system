@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dltah5lmcanj7"]
+
+[ext_resource type="PackedScene" uid="uid://c3gqco0nwvxy0" path="res://InventoryController/Slot/Slot.tscn" id="1_d14jt"]
+[ext_resource type="Script" path="res://InventoryController/InventoryController.gd" id="1_hjov2"]
+
+[node name="InventoryController" type="PanelContainer"]
+offset_right = 220.0
+offset_bottom = 152.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_hjov2")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 3
+
+[node name="Slot" parent="MarginContainer/GridContainer" instance=ExtResource("1_d14jt")]
+layout_mode = 2
+
+[node name="Slot2" parent="MarginContainer/GridContainer" instance=ExtResource("1_d14jt")]
+layout_mode = 2
+
+[node name="Slot3" parent="MarginContainer/GridContainer" instance=ExtResource("1_d14jt")]
+layout_mode = 2
+
+[node name="Slot4" parent="MarginContainer/GridContainer" instance=ExtResource("1_d14jt")]
+layout_mode = 2
+
+[node name="Slot5" parent="MarginContainer/GridContainer" instance=ExtResource("1_d14jt")]
+layout_mode = 2
+
+[node name="Slot6" parent="MarginContainer/GridContainer" instance=ExtResource("1_d14jt")]
+layout_mode = 2

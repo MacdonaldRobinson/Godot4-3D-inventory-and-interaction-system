@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dooxuuxywm7qj"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://Items/Interactable/Collectable/Cup/Cup.gd" id="1_qgsjc"]
 [ext_resource type="Texture2D" uid="uid://s85nr125i361" path="res://Items/Interactable/Collectable/Cup/cup.png" id="2_cmux6"]

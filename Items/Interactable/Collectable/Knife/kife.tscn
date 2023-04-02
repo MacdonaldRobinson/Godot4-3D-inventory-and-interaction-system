@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gvcs6otfjk7i"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://Items/Interactable/Collectable/Knife/kife.gd" id="1_m2d4y"]
 [ext_resource type="Texture2D" uid="uid://d4lfiqrq28jl1" path="res://Items/Interactable/Collectable/Knife/knife.png" id="2_k76l7"]
