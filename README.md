@@ -28,7 +28,7 @@ A demo showing the following
 ## Inventory Aware Interactive Items:
 ![image](https://github.com/MacdonaldRobinson/Godot4-3D-inventory-and-interaction-system/assets/18366446/e3c33c35-46c3-4fbb-95b6-949dac7e6bfc)
 
-## Play aanimations on Interaction:
+## Play animations on Interaction:
 ![image](https://github.com/MacdonaldRobinson/Godot4-3D-inventory-and-interaction-system/assets/18366446/7c7952e9-c3de-4a78-ab96-99b7a63c7f9d)
 
 
